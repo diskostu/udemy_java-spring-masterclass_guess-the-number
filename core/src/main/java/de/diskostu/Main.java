@@ -1,4 +1,4 @@
-package academy.learnprogramming;
+package de.diskostu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +27,6 @@ public class Main {
 
         // get the game bean from the context
         final Game game = context.getBean("game", Game.class);
-
-        // call reset method
-        game.reset();
-
 
         // close the context
         context.close();

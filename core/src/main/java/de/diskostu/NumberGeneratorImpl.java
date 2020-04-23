@@ -1,4 +1,4 @@
-package academy.learnprogramming;
+package de.diskostu;
 
 import java.util.Random;
 

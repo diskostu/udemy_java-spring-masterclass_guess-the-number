@@ -4,8 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="numberGenerator" class="academy.learnprogramming.NumberGeneratorImpl"/>
-    <bean id="game" class="academy.learnprogramming.GameImpl">
+    <bean id="numberGenerator" class="de.diskostu.NumberGeneratorImpl"/>
+    <bean id="game" class="de.diskostu.GameImpl">
         <property name="numberGenerator" ref="numberGenerator"/>
     </bean>
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
 </beans>

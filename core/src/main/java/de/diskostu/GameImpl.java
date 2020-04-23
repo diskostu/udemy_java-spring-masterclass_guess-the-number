@@ -1,7 +1,10 @@
-package academy.learnprogramming;
+package de.diskostu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 public class GameImpl implements Game {
 
@@ -19,12 +22,14 @@ public class GameImpl implements Game {
     private boolean validNumberRange = true;
 
 
+    // == setter based dependency injection ==
     public void setNumberGenerator(NumberGenerator aNumberGenerator) {
         this.numberGenerator = aNumberGenerator;
     }
 
 
-    // == public methods ==
+    // == init ==
+    @PostConstruct
     @Override
     public void reset() {
         smallest = 0;
@@ -36,6 +41,14 @@ public class GameImpl implements Game {
     }
 
 
+    // == destroy ==
+    @PreDestroy
+    public void preDestroy() {
+        log.info("predestroy called");
+    }
+
+
+    // == public methods ==
     @Override
     public void check() {
         checkValidNumberRange();
