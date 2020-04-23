@@ -9,7 +9,7 @@ public class GameImpl implements Game {
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
     // == fields ==
-    private final NumberGenerator numberGenerator;
+    private NumberGenerator numberGenerator;
     private final int guessCount = 10;
     private int number;
     private int guess;
@@ -19,8 +19,8 @@ public class GameImpl implements Game {
     private boolean validNumberRange = true;
 
 
-    public GameImpl(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
+    public void setNumberGenerator(NumberGenerator aNumberGenerator) {
+        this.numberGenerator = aNumberGenerator;
     }
 
 
