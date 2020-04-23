@@ -11,7 +11,6 @@ public class Main {
 
     private static final String CONFIG_LOCATION = "beans.xml";
 
-
     public static void main(String[] args) {
         log.info("Guess the number game");
 
@@ -19,14 +18,17 @@ public class Main {
         final ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 
         // get the number generator bean from the context
-        final NumberGenerator numberGenerator = context.getBean("numberGenerator", NumberGenerator.class);
+        // this works as long as there is only 1 implementation of NumberGenerator
+        final NumberGenerator numberGenerator = context.getBean(NumberGenerator.class);
+
 
         // call the method to get the next number, and log it
         final int number = numberGenerator.next();
         log.info("number = " + number);
 
         // get the game bean from the context
-        final Game game = context.getBean("game", Game.class);
+        // this works as long as there is only 1 implementation of Game
+        final Game game = context.getBean(Game.class);
 
         // close the context
         context.close();

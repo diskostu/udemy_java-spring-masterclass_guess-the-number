@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans   https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="numberGenerator" class="de.diskostu.NumberGeneratorImpl"/>
-    <bean id="game" class="de.diskostu.GameImpl">
-        <property name="numberGenerator" ref="numberGenerator"/>
-    </bean>
-
-    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+    <!-- enabling component scanning also implicitly enables "annotation-config", the annotation processing. -->
+    <context:component-scan base-package="de.diskostu"/>
 </beans>
