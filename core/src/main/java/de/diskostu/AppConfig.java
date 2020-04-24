@@ -23,4 +23,10 @@ public class AppConfig {
     public NumberGenerator createNumberGenerator() {
         return new NumberGeneratorImpl();
     }
+
+
+    @Bean
+    public MessageGenerator createMessageGenerator() {
+        return new MessageGeneratorImpl();
+    }
 }
