@@ -32,7 +32,7 @@ public class GameImpl implements Game {
     public void reset() {
         smallest = 0;
         guess = 0;
-        remainingGuesses = 0;
+        remainingGuesses = guessCount;
         biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
         log.debug(String.format("the number is %d", number));
