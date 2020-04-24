@@ -23,11 +23,12 @@ public class Main {
 
         // call the method to get the next number, and log it
         final int number = numberGenerator.next();
-        log.info("number = " + number);
+        log.info(String.format("number = %d", number));
 
-        // get the game bean from the context
-        // this works as long as there is only 1 implementation of Game
-        final Game game = context.getBean(Game.class);
+        // get the message generator bean from the context
+        final MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
+        log.info(String.format("messageGenerator.getMainMessage() = %s", messageGenerator.getMainMessage()));
+        log.info(String.format("messageGenerator.getResultMessage() = %s", messageGenerator.getResultMessage()));
 
         // close the context
         context.close();
