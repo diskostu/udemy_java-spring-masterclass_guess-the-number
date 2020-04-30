@@ -1,0 +1,1 @@
+![Java CI with Maven](https://github.com/diskostu/udemy_java-spring-masterclass_guess-the-number/workflows/Java%20CI%20with%20Maven/badge.svg)
