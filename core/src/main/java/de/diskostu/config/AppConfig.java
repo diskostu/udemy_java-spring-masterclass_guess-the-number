@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import(GameConfig.class)
+// explicit @Import for GameConfig class is not necessary, because GameConfig is found via component scanning
+// (see the "Bean Dependencies" diagram)
+//
 // the explicit definition of the base package is not really necessary here, since component scanning happens
 // per default in the package this class resides in. But it's a good habit to explicitly define it.
 @ComponentScan(basePackages = "de.diskostu")
