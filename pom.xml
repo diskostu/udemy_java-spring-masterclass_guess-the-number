@@ -15,9 +15,6 @@
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-
-        <logback.version>1.2.3</logback.version>
-        <spring.version>5.2.5.RELEASE</spring.version>
     </properties>
 
     <dependencyManagement>
@@ -25,13 +22,13 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
+                <version>1.2.3</version>
             </dependency>
             <dependency>
                 <scope>compile</scope>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
+                <version>5.2.6.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>javax.annotation</groupId>
