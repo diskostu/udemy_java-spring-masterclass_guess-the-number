@@ -16,7 +16,7 @@ public class NumberGeneratorImpl implements NumberGenerator {
     private final Random random = new Random();
 
     /**
-     * The name of the field does not need to match the method {@link GameConfig#maxNumberDifferent()} anymore,
+     * The name of the field does not need to match the method {@link GameConfig#maxNumber()} anymore,
      * because of the custom annotation {@link MaxNumber} we created. Both the method which generates the bean AND
      * the field have to be annotated with @{@link MaxNumber}.
      */
@@ -24,11 +24,21 @@ public class NumberGeneratorImpl implements NumberGenerator {
     @MaxNumber
     private int maxNumber;
 
+    @Autowired
+    @MinNumber
+    private int minNumber;
+
 
     // == public methods ==
     @Override
     public int next() {
-        return random.nextInt(maxNumber);
+        return random.nextInt(maxNumber - minNumber) + minNumber;
+    }
+
+
+    @Override
+    public int getMinNumber() {
+        return minNumber;
     }
 
 

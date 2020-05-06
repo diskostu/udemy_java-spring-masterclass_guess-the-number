@@ -1,6 +1,7 @@
 package de.diskostu;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,5 +15,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.PARAMETER, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface MaxNumber {
+@Bean
+public @interface MinNumber {
 }

@@ -2,6 +2,7 @@ package de.diskostu.config;
 
 import de.diskostu.GuessCount;
 import de.diskostu.MaxNumber;
+import de.diskostu.MinNumber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,14 +16,29 @@ public class GameConfig {
     @Value("${game.maxNumber}")
     private int maxNumber;
 
+    @Value("${game.minNumber}")
+    private int minNumber;
+
     @Value("${game.guessCount}")
     private int guessCount;
 
 
     // == bean methods ==
+
+
+    /**
+     * Notice that the {@link Bean} annotation is missing here. That's because the {@link MinNumber} annotation also
+     * has the {@link Bean} annotation.
+     */
+    @MinNumber
+    public int minNumber() {
+        return minNumber;
+    }
+
+
     @Bean
     @MaxNumber
-    public int maxNumberDifferent() {
+    public int maxNumber() {
         return maxNumber;
     }
 

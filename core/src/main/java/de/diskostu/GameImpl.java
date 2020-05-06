@@ -31,9 +31,9 @@ public class GameImpl implements Game {
     @PostConstruct
     @Override
     public void reset() {
-        smallest = 0;
-        guess = 0;
         remainingGuesses = guessCount;
+        guess = numberGenerator.getMinNumber();
+        smallest = numberGenerator.getMinNumber();
         biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
         log.debug(String.format("the number is %d", number));
