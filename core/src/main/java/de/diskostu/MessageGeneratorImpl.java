@@ -34,7 +34,7 @@ public class MessageGeneratorImpl implements MessageGenerator {
             return String.format("You lost. The number was %d", game.getNumber());
         } else if (!game.isValidNumberRange()) {
             return "Invalid number range. " + getMainMessage();
-        } else if (game.getRemainingGuesses() == game.getGuessCount1()) {
+        } else if (game.getRemainingGuesses() == game.getGuessCount()) {
             return "What is your first guess?";
         } else {
             String direction = "lower";

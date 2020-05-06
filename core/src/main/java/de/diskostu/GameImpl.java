@@ -1,10 +1,8 @@
 package de.diskostu;
 
-import de.diskostu.config.GameConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -18,15 +16,9 @@ public class GameImpl implements Game {
     @Autowired
     private NumberGenerator numberGenerator;
 
-    /**
-     * Normally, the name of the field has to match the method {@link GameConfig#guessCount()}. To be on the extra
-     * safe side, we add the {@link Qualifier} annotation and pass the method name as the argument.
-     * <br><br>
-     * IntelliJ is smart enough to rename the value inside {@link Qualifier} when the bean method is renamed.
-     */
     @Autowired
-    @Qualifier("guessCount")
-    private int guessCount1;
+    @GuessCount
+    private int guessCount;
     private int number;
     private int guess;
     private int smallest;
@@ -41,7 +33,7 @@ public class GameImpl implements Game {
     public void reset() {
         smallest = 0;
         guess = 0;
-        remainingGuesses = guessCount1;
+        remainingGuesses = guessCount;
         biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
         log.debug(String.format("the number is %d", number));
@@ -111,8 +103,8 @@ public class GameImpl implements Game {
 
 
     @Override
-    public int getGuessCount1() {
-        return guessCount1;
+    public int getGuessCount() {
+        return guessCount;
     }
 
 

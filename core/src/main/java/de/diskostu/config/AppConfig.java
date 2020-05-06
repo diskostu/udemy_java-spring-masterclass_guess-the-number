@@ -37,19 +37,19 @@ public class AppConfig {
      * @return an instance of the type {@link NumberGenerator}
      */
     @Bean
-    public NumberGenerator createNumberGenerator() {
+    public NumberGenerator numberGenerator() {
         return new NumberGeneratorImpl();
     }
 
 
     @Bean
-    public Game createGame() {
-        return new GameImpl();
+    public MessageGenerator messageGenerator() {
+        return new MessageGeneratorImpl();
     }
 
 
     @Bean
-    public MessageGenerator createMessageGenerator() {
-        return new MessageGeneratorImpl();
+    public Game game() {
+        return new GameImpl();
     }
 }

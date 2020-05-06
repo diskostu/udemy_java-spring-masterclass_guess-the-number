@@ -14,7 +14,7 @@ public interface Game {
 
     int getRemainingGuesses();
 
-    int getGuessCount1();
+    int getGuessCount();
 
     void reset();
 

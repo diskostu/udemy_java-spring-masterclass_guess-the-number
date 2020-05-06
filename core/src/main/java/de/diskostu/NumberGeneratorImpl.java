@@ -16,9 +16,12 @@ public class NumberGeneratorImpl implements NumberGenerator {
     private final Random random = new Random();
 
     /**
-     * The name of the field has to match the method {@link GameConfig#maxNumber()}.
+     * The name of the field does not need to match the method {@link GameConfig#maxNumberDifferent()} anymore,
+     * because of the custom annotation {@link MaxNumber} we created. Both the method which generates the bean AND
+     * the field have to be annotated with @{@link MaxNumber}.
      */
     @Autowired
+    @MaxNumber
     private int maxNumber;
 
 

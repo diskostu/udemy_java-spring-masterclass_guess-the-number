@@ -1,5 +1,7 @@
 package de.diskostu.config;
 
+import de.diskostu.GuessCount;
+import de.diskostu.MaxNumber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,12 +16,14 @@ public class GameConfig {
 
     // == bean methods ==
     @Bean
-    public int maxNumber() {
+    @MaxNumber
+    public int maxNumberDifferent() {
         return maxNumber;
     }
 
 
     @Bean
+    @GuessCount
     public int guessCount() {
         return guessCount;
     }
