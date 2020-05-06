@@ -2,16 +2,21 @@ package de.diskostu.config;
 
 import de.diskostu.GuessCount;
 import de.diskostu.MaxNumber;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("classpath:config/game.properties")
 public class GameConfig {
 
     // == fields ==
-    private final int maxNumber = 25;
+    @Value("${game.maxNumber}")
+    private int maxNumber;
 
-    private final int guessCount = 8;
+    @Value("${game.guessCount}")
+    private int guessCount;
 
 
     // == bean methods ==
