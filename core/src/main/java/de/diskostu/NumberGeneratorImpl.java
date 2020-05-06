@@ -1,8 +1,8 @@
 package de.diskostu;
 
 import de.diskostu.config.AppConfig;
-import de.diskostu.config.GameConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
@@ -10,23 +10,23 @@ import java.util.Random;
  * Notice that there is no {@link org.springframework.stereotype.Component} annotation here. This bean is created in
  * {@link AppConfig} via method.
  */
+@Component
 public class NumberGeneratorImpl implements NumberGenerator {
 
     // == fields ==
     private final Random random = new Random();
 
-    /**
-     * The name of the field does not need to match the method {@link GameConfig#maxNumber()} anymore,
-     * because of the custom annotation {@link MaxNumber} we created. Both the method which generates the bean AND
-     * the field have to be annotated with @{@link MaxNumber}.
-     */
-    @Autowired
-    @MaxNumber
-    private int maxNumber;
+    private final int maxNumber;
 
+    private final int minNumber;
+
+
+    // == constructors ==
     @Autowired
-    @MinNumber
-    private int minNumber;
+    public NumberGeneratorImpl(@MaxNumber int maxNumber, @MinNumber int minNumber) {
+        this.maxNumber = maxNumber;
+        this.minNumber = minNumber;
+    }
 
 
     // == public methods ==

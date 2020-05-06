@@ -5,7 +5,6 @@ import de.diskostu.GameImpl;
 import de.diskostu.MessageGenerator;
 import de.diskostu.MessageGeneratorImpl;
 import de.diskostu.NumberGenerator;
-import de.diskostu.NumberGeneratorImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -36,12 +35,6 @@ public class AppConfig {
      *
      * @return an instance of the type {@link NumberGenerator}
      */
-    @Bean
-    public NumberGenerator numberGenerator() {
-        return new NumberGeneratorImpl();
-    }
-
-
     @Bean
     public MessageGenerator messageGenerator() {
         return new MessageGeneratorImpl();
