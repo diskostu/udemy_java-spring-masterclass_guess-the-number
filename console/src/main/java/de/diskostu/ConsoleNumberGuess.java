@@ -1,7 +1,6 @@
 package de.diskostu;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -10,11 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Slf4j
 @Component
 public class ConsoleNumberGuess {
-
-    // == constants ==
-    private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
 
     // == fields ==
     private final Game game;
