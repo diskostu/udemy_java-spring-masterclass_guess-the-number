@@ -1,6 +1,6 @@
 package de.diskostu;
 
-import de.diskostu.config.AppConfig;
+import de.diskostu.config.GameConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -15,7 +15,7 @@ public class Main {
         log.info("Guess the number game");
 
         // create the context - also starts the app
-        final ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        final ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(GameConfig.class);
 
         // close the context
         context.close();

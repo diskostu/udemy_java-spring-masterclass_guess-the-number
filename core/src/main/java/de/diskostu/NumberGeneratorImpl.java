@@ -1,15 +1,10 @@
 package de.diskostu;
 
-import de.diskostu.config.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-/**
- * Notice that there is no {@link org.springframework.stereotype.Component} annotation here. This bean is created in
- * {@link AppConfig} via method.
- */
 @Component
 public class NumberGeneratorImpl implements NumberGenerator {
 
